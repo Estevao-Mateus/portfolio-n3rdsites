@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <!-- Configurações básicas -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO: melhora a visibilidade nos motores de busca -->
+  <meta name="description" content="Portfólio de Estêvão Mateus, desenvolvedor web especializado em sites modernos e responsivos." />
+  <meta name="keywords" content="desenvolvedor web, portfólio, sites profissionais, Angola, Luanda" />
+  <meta name="author" content="Estêvão Mateus" />
+  
+  <!-- Open Graph: melhora o compartilhamento em redes sociais -->
+  <meta property="og:title" content="Estêvão Mateus — Portfólio" />
+  <meta property="og:description" content="Desenvolvedor web criando sites modernos e responsivos para negócios." />
+  <meta property="og:image" content="https://estevao-mateus.github.io/portfolio/og-image.jpg" />
+  <meta property="og:url" content="https://estevao-mateus.github.io/portfolio/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card: melhora o compartilhamento no Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Estêvão Mateus — Portfólio" />
+  <meta name="twitter:description" content="Desenvolvedor web criando sites modernos e responsivos para negócios." />
+  <meta name="twitter:image" content="https://estevao-mateus.github.io/portfolio/og-image.jpg" />
+  
+  <title>Estêvão Mateus — Portfólio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" /> <!-- Substitua por seu favicon -->
+
+  <style>
+    /* Variáveis CSS para facilitar a manutenção */
+    :root {
+      --primary-bg: #0a2a43; /* Cor de fundo principal */
+      --secondary-bg: #09304d; /* Cor de fundo secundária */
+      --card-bg: #122c40; /* Cor de fundo dos cartões */
+      --accent-color: #00c853; /* Cor de destaque */
+      --text-color: #fff; /* Cor do texto principal */
+      --secondary-text: #b0d4f1; /* Cor do texto secundário */
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra padrão */
+      --transition: all 0.3s ease; /* Transição suave */
+    }
+
+    /* Reset básico e estilos gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif; /* Fonte com fallback */
+      background: var(--primary-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* Estilos do cabeçalho */
+    header {
+      text-align: center;
+      padding: 4rem 1.25rem;
+      background: linear-gradient(to right, var(--primary-bg), #1479b8);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--secondary-text);
+    }
+
+    /* Estilos da navegação */
+    nav {
+      background: var(--secondary-bg);
+      display: flex;
+      justify-content: center;
+      padding: 0.625rem 0;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 1.25rem;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--accent-color);
+      outline: none; /* Melhora acessibilidade */
+    }
+
+    /* Estilos das seções */
+    section {
+      padding: 2.5rem 1.25rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      border-left: 5px solid var(--accent-color);
+      padding-left: 0.625rem;
+      margin-bottom: 1.25rem;
+      color: var(--accent-color);
+      font-size: 1.8rem;
+    }
+
+    /* Estilos dos cartões */
+    .card {
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px); /* Animação ao passar o mouse */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Estilos do rodapé */
+    footer {
+      text-align: center;
+      padding: 1.875rem 0.625rem;
+      background: #061d2f;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Botão flutuante do WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background-color: #25d366;
+      color: var(--text-color);
+      border-radius: 50px;
+      text-align: center;
+      font-size: 1.875rem;
+      box-shadow: var(--shadow);
+      z-index: 100;
+      text-decoration: none;
+      line-height: 50px;
+      transition: var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      background-color: #20b356; /* Tom mais escuro ao passar o mouse */
+    }
+
+    /* Botão Voltar ao Topo */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none; /* Escondido por padrão */
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .back-to-top:hover {
+      background-color: #00a33d;
+    }
+
+    /* Design responsivo */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .card h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 2rem 1rem;
+      }
+
+      section {
+        padding: 1.5rem 1rem;
+      }
+
+      .whatsapp-float,
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Estêvão Mateus</h1>
+    <p>Desenvolvedor Web | Criador de Sites Profissionais</p>
+  </header>
+
+  <!-- Navegação -->
+  <nav aria-label="Navegação principal">
+    <a href="#sobre" aria-current="page">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <!-- Seção Sobre -->
+    <section id="sobre" aria-labelledby="sobre-title">
+      <h2 id="sobre-title">Sobre Mim</h2>
+      <div class="card">
+        <p>Sou um desenvolvedor web apaixonado por transformar ideias em sites modernos, rápidos e que funcionam em qualquer dispositivo.</p>
+        <p>Atualmente, crio soluções para negócios locais com foco em praticidade e impacto visual.</p>
+      </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projetos" aria-labelledby="projetos-title">
+      <h2 id="projetos-title">Projetos Recentes</h2>
+      <div class="card">
+        <h3>Site para Barbearia Top Corte</h3>
+        <p>Criação de site completo com agendamento via WhatsApp, layout moderno e design responsivo.</p>
+        <p><a href="https://estevao-mateus.github.io/barbearia-top-corte/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">Ver projeto</a></p>
+      </div>
+      <div class="card">
+        <h3>Portfólio Pessoal</h3>
+        <p>Este próprio site, que você está navegando. Feito com HTML e CSS puro, sem depender de frameworks externos.</p>
+      </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" aria-labelledby="contato-title">
+      <h2 id="contato-title">Contato</h2>
+      <div class="card">
+        <p>📧 Email: <a href="mailto:estevao.mateus.dev@gmail.com" style="color: var(--accent-color);">estevao.mateus.dev@gmail.com</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/244952413568" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">+244 952 413 568</a></p>
+        <p>📍 Luanda - Angola</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>© 2025 Estêvão Mateus. Todos os direitos reservados.</p>
+    <p>Desenvolvido com 💻 por <strong>N3rdSites</strong></p>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a href="https://wa.me/244952413568?text=Olá!%20Estou%20interessado%20em%20um%20site." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp">💬</a>
+  
+  <!-- Botão Voltar ao Topo -->
+  <button class="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+  <!-- JavaScript para o botão Voltar ao Topo -->
+  <script>
+    // Seleciona o botão Voltar ao Topo
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    // Mostra/esconde o botão ao rolar a página
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    });
+
+    // Rola suavemente para o topo ao clicar
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
