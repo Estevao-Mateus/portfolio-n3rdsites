@@ -7,8 +7,10 @@
   
   <!-- SEO: melhora a visibilidade nos motores de busca -->
   <meta name="description" content="Portfólio de Estêvão Mateus, desenvolvedor web especializado em sites modernos e responsivos." />
-  <meta name="keywords" content="desenvolvedor web, portfólio, sites profissionais, Angola, Luanda" />
+  <meta name="keywords" content="desenvolvedor web, portfólio, sites profissionais, Angola, Luanda, teste de QI" />
   <meta name="author" content="Estêvão Mateus" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="content-language" content="pt-BR" />
   
   <!-- Open Graph: melhora o compartilhamento em redes sociais -->
   <meta property="og:title" content="Estêvão Mateus — Portfólio" />
@@ -24,19 +26,33 @@
   <meta name="twitter:image" content="https://estevao-mateus.github.io/portfolio/og-image.jpg" />
   
   <title>Estêvão Mateus — Portfólio</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" /> <!-- Substitua por seu favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+  <!-- Estilos CSS -->
   <style>
     /* Variáveis CSS para facilitar a manutenção */
     :root {
-      --primary-bg: #0a2a43; /* Cor de fundo principal */
-      --secondary-bg: #09304d; /* Cor de fundo secundária */
-      --card-bg: #122c40; /* Cor de fundo dos cartões */
-      --accent-color: #00c853; /* Cor de destaque */
-      --text-color: #fff; /* Cor do texto principal */
-      --secondary-text: #b0d4f1; /* Cor do texto secundário */
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra padrão */
-      --transition: all 0.3s ease; /* Transição suave */
+      --primary-bg: #0a2a43;
+      --secondary-bg: #09304d;
+      --card-bg: #122c40;
+      --accent-color: #00a33d; /* Cor ajustada para melhor contraste */
+      --text-color: #fff;
+      --secondary-text: #b0d4f1;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --transition: all 0.3s ease;
+      --font-primary: 'Segoe UI', Arial, sans-serif;
+      --spacing-sm: 0.625rem;
+      --spacing-md: 1.25rem;
+      --spacing-lg: 3.5rem;
+    }
+
+    /* Tema claro */
+    :root.light {
+      --primary-bg: #f4f4f4;
+      --secondary-bg: #e0e0e0;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --secondary-text: #666;
     }
 
     /* Reset básico e estilos gerais */
@@ -47,23 +63,35 @@
     }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif; /* Fonte com fallback */
+      font-family: var(--font-primary);
       background: var(--primary-bg);
       color: var(--text-color);
       line-height: 1.6;
       font-size: 16px;
     }
 
+    /* Classe para texto acessível */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
     /* Estilos do cabeçalho */
     header {
       text-align: center;
-      padding: 4rem 1.25rem;
+      padding: var(--spacing-lg) var(--spacing-md);
       background: linear-gradient(to right, var(--primary-bg), #1479b8);
     }
 
     header h1 {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-sm);
     }
 
     header p {
@@ -76,34 +104,35 @@
       background: var(--secondary-bg);
       display: flex;
       justify-content: center;
-      padding: 0.625rem 0;
+      padding: var(--spacing-sm) 0;
     }
 
     nav a {
       color: var(--text-color);
       text-decoration: none;
-      margin: 0 1.25rem;
+      margin: 0 var(--spacing-md);
       font-weight: bold;
       transition: var(--transition);
     }
 
     nav a:hover,
-    nav a:focus {
+    nav a:focus,
+    nav a[aria-current="page"] {
       color: var(--accent-color);
-      outline: none; /* Melhora acessibilidade */
+      outline: none;
     }
 
     /* Estilos das seções */
     section {
-      padding: 2.5rem 1.25rem;
+      padding: var(--spacing-lg) var(--spacing-md);
       max-width: 900px;
       margin: auto;
     }
 
     section h2 {
       border-left: 5px solid var(--accent-color);
-      padding-left: 0.625rem;
-      margin-bottom: 1.25rem;
+      padding-left: var(--spacing-sm);
+      margin-bottom: var(--spacing-md);
       color: var(--accent-color);
       font-size: 1.8rem;
     }
@@ -111,31 +140,87 @@
     /* Estilos dos cartões */
     .card {
       background: var(--card-bg);
-      padding: 1.25rem;
+      padding: var(--spacing-md);
       border-radius: 10px;
-      margin-bottom: 1.25rem;
+      margin-bottom: var(--spacing-md);
       box-shadow: var(--shadow);
       transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
     }
 
     .card:hover {
-      transform: translateY(-5px); /* Animação ao passar o mouse */
+      transform: translateY(-5px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .card h3 {
       font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-sm);
     }
 
     .card p {
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .project-thumb {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* Estilos da lista de habilidades */
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .skills-list .stars {
+      color: var(--accent-color);
+    }
+
+    /* Estilos do formulário */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    input, textarea {
+      padding: var(--spacing-sm);
+      border-radius: 5px;
+      border: none;
+      background: #1a3c5a;
+      color: var(--text-color);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    form button {
+      padding: var(--spacing-sm);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    form button:hover {
+      background: #008c33;
     }
 
     /* Estilos do rodapé */
     footer {
       text-align: center;
-      padding: 1.875rem 0.625rem;
+      padding: 1.875rem var(--spacing-sm);
       background: #061d2f;
       font-size: 0.9rem;
       color: #aaa;
@@ -146,8 +231,8 @@
       position: fixed;
       width: 50px;
       height: 50px;
-      bottom: 1.25rem;
-      right: 1.25rem;
+      bottom: var(--spacing-md);
+      right: var(--spacing-md);
       background-color: #25d366;
       color: var(--text-color);
       border-radius: 50px;
@@ -161,14 +246,14 @@
     }
 
     .whatsapp-float:hover {
-      background-color: #20b356; /* Tom mais escuro ao passar o mouse */
+      background-color: #20b356;
     }
 
     /* Botão Voltar ao Topo */
     .back-to-top {
       position: fixed;
-      bottom: 1.25rem;
-      left: 1.25rem;
+      bottom: var(--spacing-md);
+      left: var(--spacing-md);
       width: 50px;
       height: 50px;
       background-color: var(--accent-color);
@@ -177,13 +262,40 @@
       border-radius: 50px;
       font-size: 1.5rem;
       cursor: pointer;
-      display: none; /* Escondido por padrão */
+      display: none;
       z-index: 100;
       transition: var(--transition);
     }
 
     .back-to-top:hover {
-      background-color: #00a33d;
+      background-color: #008c33;
+    }
+
+    /* Botão de alternar tema */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent-color);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: #008c33;
+    }
+
+    /* Animação de entrada */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Design responsivo */
@@ -202,7 +314,7 @@
       }
 
       nav a {
-        margin: 0.5rem 0;
+        margin: var(--spacing-sm) 0;
       }
 
       section h2 {
@@ -224,7 +336,8 @@
       }
 
       .whatsapp-float,
-      .back-to-top {
+      .back-to-top,
+      .theme-toggle {
         width: 40px;
         height: 40px;
         line-height: 40px;
@@ -234,6 +347,9 @@
   </style>
 </head>
 <body>
+  <!-- Botão de alternar tema -->
+  <button class="theme-toggle" aria-label="Alternar tema">🌙</button>
+
   <!-- Cabeçalho -->
   <header>
     <h1>Estêvão Mateus</h1>
@@ -243,6 +359,7 @@
   <!-- Navegação -->
   <nav aria-label="Navegação principal">
     <a href="#sobre" aria-current="page">Sobre</a>
+    <a href="#habilidades">Habilidades</a>
     <a href="#projetos">Projetos</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -258,17 +375,31 @@
       </div>
     </section>
 
+    <!-- Seção Habilidades -->
+    <section id="habilidades" aria-labelledby="habilidades-title">
+      <h2 id="habilidades-title">Habilidades</h2>
+      <div class="card">
+        <ul class="skills-list">
+          <li>HTML5: <span class="stars">⭐⭐⭐⭐⭐</span></li>
+          <li>CSS3: <span class="stars">⭐⭐⭐⭐</span></li>
+          <li>JavaScript: <span class="stars">⭐⭐⭐</span></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- Seção Projetos -->
     <section id="projetos" aria-labelledby="projetos-title">
       <h2 id="projetos-title">Projetos Recentes</h2>
       <div class="card">
-        <h3>Site para Barbearia Top Corte</h3>
-        <p>Criação de site completo com agendamento via WhatsApp, layout moderno e design responsivo.</p>
-        <p><a href="https://estevao-mateus.github.io/barbearia-top-corte/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">Ver projeto</a></p>
+        <h3>Teste de QI</h3>
+        <img src="images/teste-qi-thumb.webp" alt="Captura de tela do Teste de QI" class="project-thumb" loading="lazy">
+        <p>Um aplicativo web interativo para avaliação de QI, desenvolvido com HTML, CSS e JavaScript. Inclui validação de respostas em tempo real, interface responsiva e design otimizado para acessibilidade. Desafios incluíram otimizar a performance para dispositivos móveis.</p>
+        <p><a href="https://estevao-mateus.github.io/EstevaoMateus.github.io/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">Ver projeto</a></p>
       </div>
       <div class="card">
         <h3>Portfólio Pessoal</h3>
-        <p>Este próprio site, que você está navegando. Feito com HTML e CSS puro, sem depender de frameworks externos.</p>
+        <img src="images/portfolio-thumb.webp" alt="Captura de tela do Portfólio Pessoal" class="project-thumb" loading="lazy">
+        <p>Este próprio site, que você está navegando. Feito com HTML e CSS puro, sem depender de frameworks externos, com foco em acessibilidade, SEO e design responsivo.</p>
       </div>
     </section>
 
@@ -276,7 +407,16 @@
     <section id="contato" aria-labelledby="contato-title">
       <h2 id="contato-title">Contato</h2>
       <div class="card">
-        <p>📧 Email: <a href="mailto:estevao.mateus.dev@gmail.com" style="color: var(--accent-color);">estevao.mateus.dev@gmail.com</a></p>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required aria-required="true">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required aria-required="true">
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" required aria-required="true"></textarea>
+          <button type="submit" style="background: var(--accent-color); color: var(--text-color);">Enviar</button>
+        </form>
+        <p>📧 Email: <a href="mailto estevaomateus407@gmail.com" style="color: var(--accent-color);">stevaomateus407@gmail.com</a></p>
         <p>📱 WhatsApp: <a href="https://wa.me/244952413568" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">+244 952 413 568</a></p>
         <p>📍 Luanda - Angola</p>
       </div>
@@ -290,17 +430,15 @@
   </footer>
 
   <!-- Botão flutuante do WhatsApp -->
-  <a href="https://wa.me/244952413568?text=Olá!%20Estou%20interessado%20em%20um%20site." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contato via WhatsApp">💬</a>
+  <a href="https://wa.me/244952413568?text=Olá!%20Estou%20interessado%20em%20um%20site." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Entrar em contato via WhatsApp"><span class="sr-only">Contato via WhatsApp</span>💬</a>
   
   <!-- Botão Voltar ao Topo -->
   <button class="back-to-top" aria-label="Voltar ao topo">↑</button>
 
-  <!-- JavaScript para o botão Voltar ao Topo -->
+  <!-- JavaScript -->
   <script>
-    // Seleciona o botão Voltar ao Topo
+    // Botão Voltar ao Topo
     const backToTopButton = document.querySelector('.back-to-top');
-
-    // Mostra/esconde o botão ao rolar a página
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
         backToTopButton.style.display = 'block';
@@ -309,10 +447,25 @@
       }
     });
 
-    // Rola suavemente para o topo ao clicar
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Alternador de Tema
+    const toggleButton = document.querySelector('.theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      toggleButton.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
+    });
+
+    // Navegação com ARIA
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.forEach(l => l.removeAttribute('aria-current'));
+        link.setAttribute('aria-current', 'page');
+      });
+    });
   </script>
 </body>
-</html>
+  </html>
