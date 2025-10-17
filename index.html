@@ -1,470 +1,329 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-  <!-- Configurações básicas -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO: melhora a visibilidade nos motores de busca -->
-  <meta name="description" content="Portfólio de Estêvão Mateus, desenvolvedor web especializado em sites modernos e responsivos." />
-  <meta name="keywords" content="desenvolvedor web, portfólio, sites profissionais, Angola, Luanda, teste de QI" />
-  <meta name="author" content="Estêvão Mateus" />
-  <meta name="robots" content="index, follow" />
-  <meta http-equiv="content-language" content="pt-BR" />
-  
-  <!-- Open Graph: melhora o compartilhamento em redes sociais -->
-  <meta property="og:title" content="Estêvão Mateus — Portfólio" />
-  <meta property="og:description" content="Desenvolvedor web criando sites modernos e responsivos para negócios." />
-  <meta property="og:image" content="https://estevao-mateus.github.io/portfolio/og-image.jpg" />
-  <meta property="og:url" content="https://estevao-mateus.github.io/portfolio/" />
-  <meta property="og:type" content="website" />
-  
-  <!-- Twitter Card: melhora o compartilhamento no Twitter/X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Estêvão Mateus — Portfólio" />
-  <meta name="twitter:description" content="Desenvolvedor web criando sites modernos e responsivos para negócios." />
-  <meta name="twitter:image" content="https://estevao-mateus.github.io/portfolio/og-image.jpg" />
-  
-  <title>Estêvão Mateus — Portfólio</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-  <!-- Estilos CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estêvão Mateus - Desenvolvedor e Criador de Bots</title>
   <style>
-    /* Variáveis CSS para facilitar a manutenção */
-    :root {
-      --primary-bg: #0a2a43;
-      --secondary-bg: #09304d;
-      --card-bg: #122c40;
-      --accent-color: #00a33d; /* Cor ajustada para melhor contraste */
-      --text-color: #fff;
-      --secondary-text: #b0d4f1;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      --transition: all 0.3s ease;
-      --font-primary: 'Segoe UI', Arial, sans-serif;
-      --spacing-sm: 0.625rem;
-      --spacing-md: 1.25rem;
-      --spacing-lg: 3.5rem;
-    }
-
-    /* Tema claro */
-    :root.light {
-      --primary-bg: #f4f4f4;
-      --secondary-bg: #e0e0e0;
-      --card-bg: #ffffff;
-      --text-color: #333;
-      --secondary-text: #666;
-    }
-
-    /* Reset básico e estilos gerais */
+    /* ===== Estilo Base ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: var(--font-primary);
-      background: var(--primary-bg);
-      color: var(--text-color);
+      font-family: "Poppins", sans-serif;
+      background: #0a0a0a;
+      color: #fff;
       line-height: 1.6;
-      font-size: 16px;
     }
 
-    /* Classe para texto acessível */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    /* Estilos do cabeçalho */
     header {
-      text-align: center;
-      padding: var(--spacing-lg) var(--spacing-md);
-      background: linear-gradient(to right, var(--primary-bg), #1479b8);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: var(--spacing-sm);
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: var(--secondary-text);
-    }
-
-    /* Estilos da navegação */
-    nav {
-      background: var(--secondary-bg);
-      display: flex;
-      justify-content: center;
-      padding: var(--spacing-sm) 0;
+      color: #ff4655;
+      font-size: 1.4em;
+      letter-spacing: 1px;
     }
 
     nav a {
-      color: var(--text-color);
+      color: #fff;
       text-decoration: none;
-      margin: 0 var(--spacing-md);
-      font-weight: bold;
-      transition: var(--transition);
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
-    nav a:hover,
-    nav a:focus,
-    nav a[aria-current="page"] {
-      color: var(--accent-color);
-      outline: none;
+    nav a:hover {
+      color: #ff4655;
     }
 
-    /* Estilos das seções */
     section {
-      padding: var(--spacing-lg) var(--spacing-md);
-      max-width: 900px;
-      margin: auto;
+      padding: 100px 10%;
+      min-height: 100vh;
     }
 
-    section h2 {
-      border-left: 5px solid var(--accent-color);
-      padding-left: var(--spacing-sm);
-      margin-bottom: var(--spacing-md);
-      color: var(--accent-color);
-      font-size: 1.8rem;
+    h2.section-title {
+      font-size: 2.2em;
+      color: #ff4655;
+      margin-bottom: 25px;
+      text-align: center;
     }
 
-    /* Estilos dos cartões */
+    /* ===== Início ===== */
+    #inicio {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #inicio h1 {
+      font-size: 2.8em;
+      margin-bottom: 10px;
+    }
+
+    #inicio p {
+      color: #ccc;
+      font-size: 1.1em;
+      max-width: 600px;
+    }
+
+    /* ===== Sobre ===== */
+    #sobre p {
+      color: #ddd;
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ===== Especialidades ===== */
+    .especialidades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
     .card {
-      background: var(--card-bg);
-      padding: var(--spacing-md);
-      border-radius: 10px;
-      margin-bottom: var(--spacing-md);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
+      background: #121212;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 70, 85, 0.2);
     }
 
     .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: var(--spacing-sm);
+      color: #ff4655;
+      margin-bottom: 10px;
     }
 
-    .card p {
-      margin-bottom: var(--spacing-sm);
+    /* ===== Projetos ===== */
+    .projetos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
-    .project-thumb {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-      margin-bottom: var(--spacing-sm);
+    .projeto {
+      background: #121212;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+      transition: 0.3s;
     }
 
-    /* Estilos da lista de habilidades */
-    .skills-list {
-      list-style: none;
+    .projeto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(255, 70, 85, 0.2);
     }
 
-    .skills-list li {
-      margin-bottom: var(--spacing-sm);
+    .projeto h4 {
+      color: #ff4655;
+      margin-bottom: 10px;
     }
 
-    .skills-list .stars {
-      color: var(--accent-color);
-    }
-
-    /* Estilos do formulário */
+    /* ===== Contato ===== */
     form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: var(--spacing-md);
+      max-width: 450px;
+      margin: 0 auto;
+      background: #121212;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
     }
 
     input, textarea {
-      padding: var(--spacing-sm);
-      border-radius: 5px;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
       border: none;
-      background: #1a3c5a;
-      color: var(--text-color);
+      border-radius: 8px;
+      background: #1e1e1e;
+      color: #fff;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    form button {
-      padding: var(--spacing-sm);
+    button {
+      background: #ff4655;
+      color: #fff;
       border: none;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 1em;
       cursor: pointer;
-      transition: var(--transition);
+      transition: 0.3s;
     }
 
-    form button:hover {
-      background: #008c33;
+    button:hover {
+      background: #e43f4a;
+      transform: translateY(-2px);
     }
 
-    /* Estilos do rodapé */
+    .success {
+      display: none;
+      text-align: center;
+      color: #4caf50;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* ===== Rodapé ===== */
     footer {
       text-align: center;
-      padding: 1.875rem var(--spacing-sm);
-      background: #061d2f;
-      font-size: 0.9rem;
-      color: #aaa;
+      padding: 30px;
+      background: #0f0f0f;
+      color: #888;
+      font-size: 0.9em;
     }
 
-    /* Botão flutuante do WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      width: 50px;
-      height: 50px;
-      bottom: var(--spacing-md);
-      right: var(--spacing-md);
-      background-color: #25d366;
-      color: var(--text-color);
-      border-radius: 50px;
-      text-align: center;
-      font-size: 1.875rem;
-      box-shadow: var(--shadow);
-      z-index: 100;
-      text-decoration: none;
-      line-height: 50px;
-      transition: var(--transition);
-    }
-
-    .whatsapp-float:hover {
-      background-color: #20b356;
-    }
-
-    /* Botão Voltar ao Topo */
-    .back-to-top {
-      position: fixed;
-      bottom: var(--spacing-md);
-      left: var(--spacing-md);
-      width: 50px;
-      height: 50px;
-      background-color: var(--accent-color);
-      color: var(--text-color);
-      border: none;
-      border-radius: 50px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: none;
-      z-index: 100;
-      transition: var(--transition);
-    }
-
-    .back-to-top:hover {
-      background-color: #008c33;
-    }
-
-    /* Botão de alternar tema */
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: var(--accent-color);
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      z-index: 100;
-      transition: var(--transition);
-    }
-
-    .theme-toggle:hover {
-      background: #008c33;
-    }
-
-    /* Animação de entrada */
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Design responsivo */
+    /* ===== Responsivo ===== */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      header p {
-        font-size: 1rem;
-      }
-
-      nav {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav a {
-        margin: var(--spacing-sm) 0;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
-      }
-
-      .card h3 {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
       header {
-        padding: 2rem 1rem;
+        flex-direction: column;
+        padding: 15px;
       }
-
-      section {
-        padding: 1.5rem 1rem;
-      }
-
-      .whatsapp-float,
-      .back-to-top,
-      .theme-toggle {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 1.5rem;
+      nav {
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Botão de alternar tema -->
-  <button class="theme-toggle" aria-label="Alternar tema">🌙</button>
 
-  <!-- Cabeçalho -->
+  <!-- ===== Cabeçalho ===== -->
   <header>
     <h1>Estêvão Mateus</h1>
-    <p>Desenvolvedor Web | Criador de Sites Profissionais</p>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </nav>
   </header>
 
-  <!-- Navegação -->
-  <nav aria-label="Navegação principal">
-    <a href="#sobre" aria-current="page">Sobre</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-  </nav>
+  <!-- ===== Início ===== -->
+  <section id="inicio">
+    <h1>Olá, sou <span style="color:#ff4655;">Estêvão Mateus</span></h1>
+    <p>Desenvolvedor Web e criador de soluções digitais. Transformo ideias em código e automação inteligente.</p>
+  </section>
 
-  <!-- Conteúdo principal -->
-  <main>
-    <!-- Seção Sobre -->
-    <section id="sobre" aria-labelledby="sobre-title">
-      <h2 id="sobre-title">Sobre Mim</h2>
-      <div class="card">
-        <p>Sou um desenvolvedor web apaixonado por transformar ideias em sites modernos, rápidos e que funcionam em qualquer dispositivo.</p>
-        <p>Atualmente, crio soluções para negócios locais com foco em praticidade e impacto visual.</p>
-      </div>
-    </section>
+  <!-- ===== Sobre ===== -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre Mim</h2>
+    <p>Sou apaixonado por tecnologia, automação e criação de ferramentas que simplificam a vida digital.  
+      Trabalho com desenvolvimento web, bots e integração de sistemas inteligentes.  
+      Busco sempre unir eficiência, design e segurança em cada projeto.</p>
+  </section>
 
-    <!-- Seção Habilidades -->
-    <section id="habilidades" aria-labelledby="habilidades-title">
-      <h2 id="habilidades-title">Habilidades</h2>
+  <!-- ===== Especialidades ===== -->
+  <section id="especialidades">
+    <h2 class="section-title">Minhas Especialidades</h2>
+    <div class="especialidades">
       <div class="card">
-        <ul class="skills-list">
-          <li>HTML5: <span class="stars">⭐⭐⭐⭐⭐</span></li>
-          <li>CSS3: <span class="stars">⭐⭐⭐⭐</span></li>
-          <li>JavaScript: <span class="stars">⭐⭐⭐</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Seção Projetos -->
-    <section id="projetos" aria-labelledby="projetos-title">
-      <h2 id="projetos-title">Projetos Recentes</h2>
-      <div class="card">
-        <h3>Teste de QI</h3>
-        <img src="images/teste-qi-thumb.webp" alt="Captura de tela do Teste de QI" class="project-thumb" loading="lazy">
-        <p>Um aplicativo web interativo para avaliação de QI, desenvolvido com HTML, CSS e JavaScript. Inclui validação de respostas em tempo real, interface responsiva e design otimizado para acessibilidade. Desafios incluíram otimizar a performance para dispositivos móveis.</p>
-        <p><a href="https://estevao-mateus.github.io/EstevaoMateus.github.io/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">Ver projeto</a></p>
+        <h3>💻 Desenvolvimento Web</h3>
+        <p>Criação de sites e sistemas modernos, rápidos e responsivos — do front-end ao back-end.</p>
       </div>
       <div class="card">
-        <h3>Portfólio Pessoal</h3>
-        <img src="images/portfolio-thumb.webp" alt="Captura de tela do Portfólio Pessoal" class="project-thumb" loading="lazy">
-        <p>Este próprio site, que você está navegando. Feito com HTML e CSS puro, sem depender de frameworks externos, com foco em acessibilidade, SEO e design responsivo.</p>
+        <h3>🤖 Criação de Bots</h3>
+        <p>Automatizo tarefas e crio bots inteligentes para Telegram, Discord e outras plataformas.</p>
       </div>
-    </section>
-
-    <!-- Seção Contato -->
-    <section id="contato" aria-labelledby="contato-title">
-      <h2 id="contato-title">Contato</h2>
       <div class="card">
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-          <label for="name">Nome:</label>
-          <input type="text" id="name" name="name" required aria-required="true">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required aria-required="true">
-          <label for="message">Mensagem:</label>
-          <textarea id="message" name="message" required aria-required="true"></textarea>
-          <button type="submit" style="background: var(--accent-color); color: var(--text-color);">Enviar</button>
-        </form>
-        <p>📧 Email: <a href="mailto estevaomateus407@gmail.com" style="color: var(--accent-color);">estevaomateus407@gmail.com</a></p>
-        <p>📱 WhatsApp: <a href="https://wa.me/244952413568" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color);">+244 952 413 568</a></p>
-        <p>📍 Luanda - Angola</p>
+        <h3>☁️ Integrações com APIs</h3>
+        <p>Conecto serviços e plataformas com APIs seguras e personalizadas para cada projeto.</p>
       </div>
-    </section>
-  </main>
+      <div class="card">
+        <h3>✍️ Escrita e Conteúdo</h3>
+        <p>Produzo textos técnicos, motivacionais e criativos, com clareza e profundidade.</p>
+      </div>
+      <div class="card">
+        <h3>🔧 Consultoria e Suporte</h3>
+        <p>Ofereço suporte técnico e consultoria para projetos de tecnologia e infraestrutura digital.</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Rodapé -->
+  <!-- ===== Projetos ===== -->
+  <section id="projetos">
+    <h2 class="section-title">Projetos em Destaque</h2>
+    <div class="projetos">
+      <div class="projeto">
+        <h4>Letra Finder</h4>
+        <p>Aplicação que busca letras de músicas automaticamente com integração à API do Genius.</p>
+      </div>
+      <div class="projeto">
+        <h4>WH Security</h4>
+        <p>Sistema anti-hacking que detecta ataques como SQL Injection, DDoS e Buffer Overflow.</p>
+      </div>
+      <div class="projeto">
+        <h4>Bot Telegram AI</h4>
+        <p>Bot de respostas automáticas e integração com inteligência artificial via API.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contato ===== -->
+  <section id="contato">
+    <h2 class="section-title">Entre em Contato</h2>
+    <form id="contact-form" action="https://formspree.io/f/mvgwldad" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="5" placeholder="Sua mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+      <p class="success" id="success">✅ Mensagem enviada com sucesso!</p>
+    </form>
+  </section>
+
+  <!-- ===== Rodapé ===== -->
   <footer>
-    <p>© 2025 Estêvão Mateus. Todos os direitos reservados.</p>
-    <p>Desenvolvido com 💻 por <strong>N3rdSites</strong></p>
+    © 2025 Estêvão Mateus — Todos os direitos reservados.
   </footer>
 
-  <!-- Botão flutuante do WhatsApp -->
-  <a href="https://wa.me/244952413568?text=Olá!%20Estou%20interessado%20em%20um%20site." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Entrar em contato via WhatsApp"><span class="sr-only">Contato via WhatsApp</span>💬</a>
-  
-  <!-- Botão Voltar ao Topo -->
-  <button class="back-to-top" aria-label="Voltar ao topo">↑</button>
-
-  <!-- JavaScript -->
   <script>
-    // Botão Voltar ao Topo
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopButton.style.display = 'block';
-      } else {
-        backToTopButton.style.display = 'none';
-      }
-    });
+    // Script do Formulário
+    const form = document.getElementById("contact-form");
+    const success = document.getElementById("success");
 
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Alternador de Tema
-    const toggleButton = document.querySelector('.theme-toggle');
-    toggleButton.addEventListener('click', () => {
-      document.documentElement.classList.toggle('light');
-      toggleButton.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
-    });
-
-    // Navegação com ARIA
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.forEach(l => l.removeAttribute('aria-current'));
-        link.setAttribute('aria-current', 'page');
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
       });
+
+      if (response.ok) {
+        success.style.display = "block";
+        form.reset();
+        setTimeout(() => { success.style.display = "none"; }, 4000);
+      } else {
+        alert("Erro ao enviar. Tente novamente.");
+      }
     });
   </script>
 </body>
